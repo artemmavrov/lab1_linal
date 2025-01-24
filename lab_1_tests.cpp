@@ -154,9 +154,8 @@ void generate_matrix(int& n, int& m, int& perecent_null, int number_matrix) {
     uniform_int_distribution<int> rand_perecent(0, 100);
 
     ofstream test;
-    string file_way = buffer + "/tests/matrix_" + to_string(number_matrix) + ".txt";
+    string file_way = buffer + "\\tests\\matrix_" + to_string(number_matrix) + ".txt";
     test.open(file_way);
-
     test << n << " " <<  m << endl;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
@@ -189,7 +188,7 @@ bool check_answer_matrix(vector<vector<long double>>& answer, vector<vector<long
 }
 
 void run_test(int& n, int& m, int& number_martrix, int& testing_func, long double& error) {
-    string file_way_matrix1 = buffer + "/tests/matrix_" + to_string(number_martrix) + ".txt";
+    string file_way_matrix1 = buffer + "\\tests\\matrix_" + to_string(number_martrix) + ".txt";
     Matrix matrix1 = Matrix(0, 0, {}, {}, {}, file_way_matrix1);
     dense_matrix matrix1_dense = dense_matrix(file_way_matrix1);
 
@@ -232,7 +231,7 @@ void run_test(int& n, int& m, int& number_martrix, int& testing_func, long doubl
             cout << "Accept" << endl;
          }
     }else if (testing_func == 3) {
-        string file_way_matrix2 = buffer + "/tests/matrix_" + to_string(number_martrix + 1) + ".txt";
+        string file_way_matrix2 = buffer + "\\tests\\matrix_" + to_string(number_martrix + 1) + ".txt";
         Matrix matrix2 = Matrix(0, 0, {}, {}, {}, file_way_matrix2);
         dense_matrix matrix2_dense = dense_matrix(file_way_matrix2);
 
@@ -266,10 +265,9 @@ void run_test(int& n, int& m, int& number_martrix, int& testing_func, long doubl
             write_matrix(correct_answer, n, m);
          }
     }else if (testing_func == 5) {
-        string file_way_matrix2 = buffer + "/tests/matrix_" + to_string(number_martrix + 1) + ".txt";
+        string file_way_matrix2 = buffer + "\\tests\\matrix_" + to_string(number_martrix + 1) + ".txt";
         Matrix matrix2 = Matrix(0, 0, {}, {}, {}, file_way_matrix2);
         dense_matrix matrix2_dense = dense_matrix(file_way_matrix2);
-
         vector<vector<long double>> answer = multiply_matrix(matrix1, matrix2).to_vector();
         vector<vector<long double>> correct_answer = (matrix1_dense.multiply_matrix_dense(matrix2_dense)).to_vector_dense();
 

@@ -51,12 +51,12 @@ public:
             this->col = col;
             this->rowpointer = rowpointer;
         } else if (!path.empty()) {
+			
             ifstream file(path);
-
+			
             file >> this->n >> this->m;
             long double value;
-			rowpointer.resize(n + 1, 0);
-
+			this->rowpointer.resize(this->n + 1, 0);
             for (int i = 0; i < this->n; ++i) {
 				int cnt_of_not_zero_elements = 0;
                 for (int j = 0; j < this->m; ++j) {
@@ -67,9 +67,10 @@ public:
 						cnt_of_not_zero_elements++;
                     }
                 }
-				rowpointer[i + 1] = rowpointer[i] + cnt_of_not_zero_elements;
+				this->rowpointer[i + 1] = this->rowpointer[i] + cnt_of_not_zero_elements;
             }
             file.close();
+			
         } else {
             write_matrix();
         }
