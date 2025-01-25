@@ -150,6 +150,7 @@ void get_matrix_string_sum(map<int, long double> &string_values, Matrix &matrix,
 {
 		for(int values_index = matrix.rowpointer[rowpointer_index - 1]; values_index < matrix.rowpointer[rowpointer_index]; values_index++)
 		{
+			// take scalar into account when adding
 			string_values[matrix.col[values_index]] += matrix.values[values_index] * matrix.scalar;
 		}
 }
